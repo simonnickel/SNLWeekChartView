@@ -39,6 +39,8 @@
 /* Begin PBXFileReference section */
 		350D26053267C361620BEFFD /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A462C662797BF1FD2BA69B9 /* Pods_SNLWeekChartView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNLWeekChartView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AA03E551B091F18008361A4 /* SNLWeekChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNLWeekChartView.h; sourceTree = "<group>"; };
+		5AA03E561B091F18008361A4 /* SNLWeekChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNLWeekChartView.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SNLWeekChartView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNLWeekChartView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA03E571B091F18008361A4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5AA03E551B091F18008361A4 /* SNLWeekChartView.h */,
+				5AA03E561B091F18008361A4 /* SNLWeekChartView.m */,
+			);
+			name = Classes;
+			path = ../../Pod/Classes;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +144,7 @@
 		6003F593195388D20070C39A /* SNLWeekChartView */ = {
 			isa = PBXGroup;
 			children = (
+				5AA03E571B091F18008361A4 /* Classes */,
 				6003F59C195388D20070C39A /* SNLAppDelegate.h */,
 				6003F59D195388D20070C39A /* SNLAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,

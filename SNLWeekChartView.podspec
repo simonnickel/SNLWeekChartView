@@ -34,5 +34,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'JBChartView', '~> 2.5.1'
+  s.dependency 'JBChartView', '~> 2.8.14'
 end

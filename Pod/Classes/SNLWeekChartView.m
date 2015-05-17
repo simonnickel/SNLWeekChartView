@@ -8,7 +8,6 @@
 
 #import "SNLWeekChartView.h"
 
-#define HEIGHT_BAR_FIX 10
 #define HEIGHT_WEEKDAY 16
 #define PADDING_LABEL 2
 
@@ -65,7 +64,7 @@
 {
     [self.barChartView removeFromSuperview];
     self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    self.barChartView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - HEIGHT_BAR_FIX - (self.showFullBar ? 0 : HEIGHT_WEEKDAY));
+    self.barChartView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - (self.showFullBar ? 0 : HEIGHT_WEEKDAY));
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.clipsToBounds = NO;
@@ -154,7 +153,7 @@
 
 - (BOOL)showValueLabel:(UILabel *)label atIndex:(NSUInteger)index
 {
-    CGFloat barValue = [self barChartView:self.barChartView heightForBarViewAtAtIndex:index];
+    CGFloat barValue = [self barChartView:self.barChartView heightForBarViewAtIndex:index];
     CGFloat barHeight = self.barChartView.frame.size.height / (self.valueMax.floatValue / barValue);
     CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
     
@@ -164,7 +163,7 @@
 
 #pragma mark - JBBarChartViewDelegate
 
-- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSUInteger)index
+- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtIndex:(NSUInteger)index
 {
     CGFloat value = [self valueAtIndex:index];
     
@@ -175,7 +174,7 @@
     }
 }
 
-- (NSUInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
+- (CGFloat)barPaddingForBarChartView:(JBBarChartView *)barChartView
 {
     CGFloat width = barChartView.frame.size.width;
     NSUInteger bars = [self numberOfBarsInBarChartView:barChartView];
@@ -223,9 +222,9 @@
         labelValue.translatesAutoresizingMaskIntoConstraints = NO;
         
         if (self.isModePercentage) {
-            labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtAtIndex:index]];
+            labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtIndex:index]];
         } else {
-            labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtAtIndex:index]];
+            labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtIndex:index]];
         }
         
         if ([self showValueLabel:labelValue atIndex:index]) {
