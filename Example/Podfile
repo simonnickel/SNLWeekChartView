@@ -1,7 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+use_frameworks!
+
 target 'SNLWeekChartView', :exclusive => true do
   pod "SNLWeekChartView", :path => "../"
+  
+  pod 'JBChartView', '~> 2.5.1'
 end
 
 target 'Tests', :exclusive => true do
