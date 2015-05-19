@@ -157,7 +157,7 @@
     CGFloat barHeight = self.barChartView.frame.size.height / (self.valueMax.floatValue / barValue);
     CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
     
-    return _showValues && labelSize.height < barHeight + 6 && labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
+    return _showValues && labelSize.height < barHeight - PADDING_LABEL && labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
 }
 
 
@@ -265,7 +265,7 @@
     }
 }
 
-- (void)placeView:(UIView *)view atBottomOfView:(UIView *)atView bottom:(NSUInteger)bottom height:(NSUInteger)height
+- (void)placeView:(UIView *)view atBottomOfView:(UIView *)atView bottom:(NSInteger)bottom height:(NSUInteger)height
 {
     [atView addSubview:view];
     
