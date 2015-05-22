@@ -113,13 +113,21 @@
 
 - (void)setValues:(NSArray *)values
 {
-    _values = values;
+    NSMutableArray *values7 = [[NSMutableArray alloc] initWithCapacity:7];
+
+    int i = 0;
+    while (i < 7) {
+        values7[i] = (values.count > i ? values[i] : @(0));
+        i++;
+    }
     
-    self.valueMax = [values valueForKeyPath:@"@max.self"];
+    _values = values7;
     
-    self.valueTotal = [values valueForKeyPath: @"@sum.self"];
+    self.valueMax = [values7 valueForKeyPath:@"@max.self"];
+    
+    self.valueTotal = [values7 valueForKeyPath: @"@sum.self"];
     NSInteger total = 0;
-    for (NSNumber *value in self.values) {
+    for (NSNumber *value in values7) {
         total += [value integerValue];
     }
 }

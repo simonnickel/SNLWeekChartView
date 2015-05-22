@@ -41,7 +41,7 @@ IB_DESIGNABLE
 @property (nonatomic) UIFont *fontValue;
 @property (nonatomic) UIFont *fontWeekday;
 
-@property (nonatomic) IBInspectable NSArray *values;
+@property (nonatomic) NSArray *values;
 @property (nonatomic) ChartWeekMode mode;
 @property (nonatomic) ChartWeekPaddingWidth paddingWidth;
 @property (nonatomic) IBInspectable NSInteger paddingValue;
