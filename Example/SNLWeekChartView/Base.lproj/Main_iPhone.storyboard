@@ -318,6 +318,9 @@
                             <constraint firstAttribute="centerX" secondItem="0ax-wf-U28" secondAttribute="centerX" id="yjB-vO-uBF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="weekViewMain" destination="21t-GH-wbK" id="W9b-wf-Sde"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

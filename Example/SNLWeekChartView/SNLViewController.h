@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SNLWeekChartView;
+
 @interface SNLViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet SNLWeekChartView *weekViewMain;
 
 @end

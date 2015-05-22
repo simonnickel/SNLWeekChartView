@@ -7,6 +7,7 @@
 //
 
 #import "SNLViewController.h"
+#import "SNLWeekChartView.h"
 
 @interface SNLViewController ()
 
@@ -17,7 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.weekViewMain.values = @[@(1), @(2), @(0), @(1), @(1), @(1)];
 }
 
 - (void)didReceiveMemoryWarning
