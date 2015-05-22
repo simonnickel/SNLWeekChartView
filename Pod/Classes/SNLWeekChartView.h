@@ -14,13 +14,13 @@ typedef NS_ENUM(NSUInteger, ChartWeekMode) {
     ChartWeekModePercentage
 };
 
-typedef NS_ENUM(NSUInteger, ChartWeekPaddingType) {
-    ChartWeekPaddingTypeDefault,
-    ChartWeekPaddingTypeWithValue,
-    ChartWeekPaddingTypeSmall,
-    ChartWeekPaddingTypeMedium,
-    ChartWeekPaddingTypeBig,
-    ChartWeekPaddingTypeThin
+typedef NS_ENUM(NSUInteger, ChartWeekPaddingWidth) {
+    ChartWeekPaddingWidthDefault,
+    ChartWeekPaddingWidthFromValue,
+    ChartWeekPaddingWidthSmall,
+    ChartWeekPaddingWidthMedium,
+    ChartWeekPaddingWidthBig,
+    ChartWeekPaddingWidthThin
 };
 
 IB_DESIGNABLE
@@ -43,7 +43,8 @@ IB_DESIGNABLE
 
 @property (nonatomic) IBInspectable NSArray *values;
 @property (nonatomic) ChartWeekMode mode;
-@property (nonatomic) ChartWeekPaddingType paddingType;
+@property (nonatomic) ChartWeekPaddingWidth paddingWidth;
 @property (nonatomic) IBInspectable NSInteger paddingValue;
+@property (nonatomic) IBInspectable BOOL paddingAppliedOnOutside;
 
 @end

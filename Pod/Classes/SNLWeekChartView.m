@@ -64,7 +64,8 @@
 {
     [self.barChartView removeFromSuperview];
     self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    self.barChartView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - (self.showFullBar ? 0 : HEIGHT_WEEKDAY));
+    CGFloat padding = self.paddingAppliedOnOutside ? [self barPaddingForBarChartView:self.barChartView] : 0;
+    self.barChartView.frame = CGRectMake(padding, 0, self.frame.size.width - (padding * 2), self.frame.size.height - (self.showFullBar ? 0 : HEIGHT_WEEKDAY));
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.clipsToBounds = NO;
@@ -180,21 +181,21 @@
     NSUInteger bars = [self numberOfBarsInBarChartView:barChartView];
     CGFloat barWidth = width / bars;
     
-    switch (self.paddingType) {
-        case ChartWeekPaddingTypeSmall:
+    switch (self.paddingWidth) {
+        case ChartWeekPaddingWidthSmall:
             return barWidth / 15;
             
-        case ChartWeekPaddingTypeMedium:
+        case ChartWeekPaddingWidthMedium:
             return barWidth / 7;
             
-        case ChartWeekPaddingTypeBig:
+        case ChartWeekPaddingWidthBig:
             return barWidth / 3;
             
-        case ChartWeekPaddingTypeThin:
+        case ChartWeekPaddingWidthThin:
             return 1;
             
-        case ChartWeekPaddingTypeDefault:
-        case ChartWeekPaddingTypeWithValue:
+        case ChartWeekPaddingWidthDefault:
+        case ChartWeekPaddingWidthFromValue:
         default:
             return self.paddingValue >= 0 ? self.paddingValue : barWidth / 7;
     }
