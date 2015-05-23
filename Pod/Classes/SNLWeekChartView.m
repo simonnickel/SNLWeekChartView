@@ -45,7 +45,6 @@
 - (void)initializeDefaults
 {
     self.values = @[@(1),@(5),@(2),@(3),@(4),@(5),@(6)];
-    self.mode = ChartWeekModeDefault;
     self.paddingValue = -1;
     self.showValues = YES;
     self.showWeekdays = YES;
@@ -63,9 +62,11 @@
 - (void)setupView
 {
     [self.barChartView removeFromSuperview];
+    
     self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     CGFloat padding = self.paddingAppliedOnOutside ? [self barPaddingForBarChartView:self.barChartView] : 0;
     self.barChartView.frame = CGRectMake(padding, 0, self.frame.size.width - (padding * 2), self.frame.size.height - (self.showFullBar ? 0 : HEIGHT_WEEKDAY));
+    
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.clipsToBounds = NO;
@@ -98,7 +99,7 @@
 
 - (BOOL)isModePercentage
 {
-    return self.mode == ChartWeekModePercentage;
+    return self.percentageMode;
 }
 
 - (BOOL)isThin
@@ -122,14 +123,8 @@
     }
     
     _values = values7;
-    
     self.valueMax = [values7 valueForKeyPath:@"@max.self"];
-    
     self.valueTotal = [values7 valueForKeyPath: @"@sum.self"];
-    NSInteger total = 0;
-    for (NSNumber *value in values7) {
-        total += [value integerValue];
-    }
 }
 
 - (CGFloat)valueAtIndex:(NSUInteger)index
@@ -139,7 +134,7 @@
 
 - (NSNumber *)valueMax
 {
-    return (self.isModePercentage ? @(_valueMax.floatValue * 100 / self.values.count) : _valueMax);
+    return (self.isModePercentage ? @(_valueMax.floatValue * 100 / [self.valueTotal floatValue]) : _valueMax);
 }
 
 - (CGFloat)barWidth
@@ -176,7 +171,7 @@
 {
     CGFloat value = [self valueAtIndex:index];
     
-    if (self.isModePercentage) {
+    if (self.percentageMode) {
         return (self.valueTotal.floatValue > 0.0f ? (value * 100 / self.valueTotal.floatValue) : 0.0f);
     } else {
         return value;
@@ -230,7 +225,7 @@
         labelValue.textAlignment = NSTextAlignmentCenter;
         labelValue.translatesAutoresizingMaskIntoConstraints = NO;
         
-        if (self.isModePercentage) {
+        if (self.percentageMode) {
             labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtIndex:index]];
         } else {
             labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtIndex:index]];

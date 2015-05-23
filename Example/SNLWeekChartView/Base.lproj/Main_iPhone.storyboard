@@ -38,6 +38,7 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="paddingAppliedOnOutside" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="percentageMode" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ax-wf-U28" customClass="SNLWeekChartView">
@@ -60,6 +61,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekday">
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="percentageMode" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeP-lD-loy" customClass="SNLWeekChartView">
