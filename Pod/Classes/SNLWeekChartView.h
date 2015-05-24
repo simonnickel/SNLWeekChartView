@@ -31,6 +31,8 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable BOOL showValues;
 @property (nonatomic) IBInspectable BOOL percentageMode;
 @property (nonatomic) IBInspectable BOOL showWeekdays;
+@property (nonatomic) IBInspectable BOOL startsOnMonday;
+@property (nonatomic) IBInspectable BOOL highlightWeekdays;
 @property (nonatomic) IBInspectable BOOL fillBarIfThin;
 
 @property (nonatomic) ChartWeekPaddingWidth paddingWidth;
@@ -44,8 +46,12 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable UIColor *colorChart;
 @property (nonatomic) IBInspectable UIColor *colorValue;
 @property (nonatomic) IBInspectable UIColor *colorWeekday;
+@property (nonatomic) IBInspectable UIColor *colorWeekdayToday;
+@property (nonatomic) IBInspectable UIColor *colorWeekdayInactive;
 
 @property (nonatomic) UIFont *fontValue;
 @property (nonatomic) UIFont *fontWeekday;
+@property (nonatomic) UIFont *fontWeekdayToday;
+@property (nonatomic) UIFont *fontWeekdayInactive;
 
 @end

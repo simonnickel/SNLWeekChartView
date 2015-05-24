@@ -48,6 +48,8 @@
     self.paddingValue = -1;
     self.showValues = YES;
     self.showWeekdays = YES;
+    self.startsOnMonday = YES;
+    self.highlightWeekdays = YES;
     self.fillBarIfThin = YES;
     
     self.colorBackground = [UIColor whiteColor];
@@ -56,7 +58,8 @@
     self.colorWeekday = [UIColor greenColor];
     
     self.fontValue = [UIFont boldSystemFontOfSize:10];
-    self.fontWeekday = [UIFont boldSystemFontOfSize:10];
+    self.fontWeekday = [UIFont systemFontOfSize:10];
+    self.fontWeekdayToday = [UIFont boldSystemFontOfSize:10];
 }
 
 - (void)setupView
@@ -244,11 +247,22 @@
         labelWeekday.textAlignment = NSTextAlignmentCenter;
         labelWeekday.translatesAutoresizingMaskIntoConstraints = NO;
         
-        NSString *weekday = [self weekdaySymbolForIndex:index startOnMonday:YES veryShort:[self isThin]];
-        labelWeekday.text = [[weekday stringByReplacingOccurrencesOfString:@"." withString:@""] uppercaseString];
+        NSString *weekdayText = [self weekdaySymbolForIndex:index startOnMonday:self.startsOnMonday veryShort:[self isThin]];
+        labelWeekday.text = [[weekdayText stringByReplacingOccurrencesOfString:@"." withString:@""] uppercaseString];
         
         CGSize labelWeekdaySize = [labelWeekday.text sizeWithAttributes:@{NSFontAttributeName:labelWeekday.font}];
         [self placeView:labelWeekday atBottomOfView:barView bottom:HEIGHT_WEEKDAY - PADDING_LABEL height:labelWeekdaySize.height];
+        
+        if (self.highlightWeekdays) {
+            NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]];
+            if (index == dateIndexToday) {
+                labelWeekday.font = self.fontWeekdayToday ? : self.fontWeekday;
+                labelWeekday.textColor = self.colorWeekdayToday ? : self.colorWeekday;
+            } else if (index > dateIndexToday) {
+                labelWeekday.font = self.fontWeekdayInactive ? : self.fontWeekday;
+                labelWeekday.textColor = self.colorWeekdayInactive ? : self.colorWeekday;
+            }
+        }
     }
     
     return barView;
@@ -257,16 +271,33 @@
 
 #pragma mark - Helper
 
+- (NSInteger)indexForWeekdayFromDate:(NSDate *)date
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitWeekday fromDate:date];
+    NSInteger weekday = components.weekday;
+    
+    if (self.startsOnMonday) {
+        return (weekday == 1 ? 6 : weekday - 1);
+    } else {
+        return weekday - 1;
+    }
+}
+
+- (NSInteger)weekdayForIndex:(NSInteger)index
+{
+    if (self.startsOnMonday) {
+        return (index == 6 ? 0 : index + 1);
+    } else {
+        return index;
+    }
+}
+
 - (NSString *)weekdaySymbolForIndex:(NSInteger)index startOnMonday:(BOOL)weekStartsOnMonday veryShort:(BOOL)veryShort
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSArray *weekdaySymbols = (veryShort ? [formatter veryShortWeekdaySymbols] : [formatter shortWeekdaySymbols]);
     
-    if (weekStartsOnMonday) {
-        return weekdaySymbols[index == 6 ? 0 : index + 1];
-    } else {
-        return weekdaySymbols[index];
-    }
+    return weekdaySymbols[[self weekdayForIndex:index]];
 }
 
 - (void)placeView:(UIView *)view atBottomOfView:(UIView *)atView bottom:(NSInteger)bottom height:(NSUInteger)height
