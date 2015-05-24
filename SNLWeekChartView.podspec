@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
   s.name             = "SNLWeekChartView"
   s.version          = "1.0.0"
-  s.summary          = "SNLWeekChartView is a wrapper to easily create a JBChartView representing a week."
+  s.summary          = "SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week."
   s.description      = <<-DESC
                        Using IB_DESIGNABLE you can add a SNLWeekChartView to your storyboard to configure and preview it right there. 
                        DESC

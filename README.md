@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SNLWeekChartView.svg?style=flat)](http://cocoapods.org/pods/SNLWeekChartView)
 [![Platform](https://img.shields.io/cocoapods/p/SNLWeekChartView.svg?style=flat)](http://cocoapods.org/pods/SNLWeekChartView)
 
-SNLWeekChartView is a wrapper to easily create a JBChartView representing a week. Using IB_DESIGNABLE you can add a SNLWeekChartView to your storyboard to configure and preview it right there. 
+SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week. Using IB_DESIGNABLE you can add a SNLWeekChartView to your storyboard to configure and preview it right there. 
 
 ![Example](https://raw.githubusercontent.com/simonnickel/SNLWeekChartView/master/Pod/Assets/SNLWeekChartView.png)
 
