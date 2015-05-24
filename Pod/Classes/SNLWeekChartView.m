@@ -90,6 +90,13 @@
     [_barChartView reloadData];
 }
 
+- (void)dealloc
+{
+    JBBarChartView *barChartView = self.barChartView;
+    barChartView.delegate = nil;
+    barChartView.dataSource = nil;
+}
+
 
 #pragma mark - Lifecycle
 
