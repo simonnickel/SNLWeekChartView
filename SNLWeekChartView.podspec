@@ -9,20 +9,17 @@
 
 Pod::Spec.new do |s|
   s.name             = "SNLWeekChartView"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of SNLWeekChartView."
+  s.version          = "1.0.0"
+  s.summary          = "SNLWeekChartView is a wrapper to easily create a JBChartView representing a week."
   s.description      = <<-DESC
-                       An optional longer description of SNLWeekChartView
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Using IB_DESIGNABLE you can add a SNLWeekChartView to your storyboard to configure and preview it right there. 
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SNLWeekChartView"
+  s.homepage         = "https://github.com/simonnickel/SNLWeekChartView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Simon Nickel" => "simon@meformobile.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SNLWeekChartView.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Simon Nickel" => "simon@googlemail.com" }
+  s.source           = { :git => "https://github.com/simonnickel/SNLWeekChartView.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/simonnickel'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
