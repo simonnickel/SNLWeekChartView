@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SNLWeekChartView.svg?style=flat)](http://cocoapods.org/pods/SNLWeekChartView)
 [![Platform](https://img.shields.io/cocoapods/p/SNLWeekChartView.svg?style=flat)](http://cocoapods.org/pods/SNLWeekChartView)
 
-SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week. Using IB_DESIGNABLE you can add a SNLWeekChartView to your storyboard to configure and preview it right there. 
+SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week. Just layout your SNLWeekChartView in your storyboard and style it using IB_DESIGNABLE. Set your values in your ViewController and you are done.
 
 ![Example](https://raw.githubusercontent.com/simonnickel/SNLWeekChartView/master/Pod/Assets/SNLWeekChartView.png)
 
@@ -30,21 +30,32 @@ To use it in your project:
 
 1. Install with CocoaPods.
 2. Add a UIView in your storyboard and change it's class to SNLWeekChartView.
-3. Connect your view to your ViewController and set values.
+3. Connect the view to your ViewController and set its values.
 
 ```objective-c
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.weekView.values = @[@(1), @(2), @(0), @(1), @(1), @(1)];
+    self.weekView.values = @[@(1), @(2), @(0), @(1), @(3), @(1)];
 }
 ```
 
 
-## Configuration
+## Customization
 
-...
+### Colors & Fonts
+You can set the colors (background, chart, value label, weekday label [past, current, future]) and fonts (value label, weekday label [past, current, future]) in storyboard or by settings their properties in your ViewController.
+    
+### Layout
+You can set the padding between bars with dynamic padding classes (weekView.paddingWidth = ChartWeekPaddingWidthDefault, not supported in storyboard) or a fixed value (weekView.paddingValue). Padding can be applied on the outside of the view (paddingAppliedOnOutside). 
+
+### Informations
+You can ...
+ * Disable value and week labels (weekView.showValues, weekView.showWeekdays).
+ * Switch to show values as percentages (weekView.percentageMode). 
+ * Highlight past, current and future weekdays (highlightWeekdays).
+ * Set the weekdays to start on Sunday (startsOnMonday).
 
 
 ## Author
