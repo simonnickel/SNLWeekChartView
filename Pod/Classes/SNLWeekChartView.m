@@ -66,10 +66,13 @@
     self.colorChart = [UIColor blackColor];
     self.colorValue = [UIColor redColor];
     self.colorWeekday = [UIColor greenColor];
+    self.colorWeekdayToday = [UIColor blackColor];
+    self.colorWeekdayInactive = [UIColor grayColor];
     
     self.fontValue = [UIFont boldSystemFontOfSize:10];
     self.fontWeekday = [UIFont systemFontOfSize:10];
     self.fontWeekdayToday = [UIFont boldSystemFontOfSize:10];
+    self.fontWeekdayInactive = [UIFont boldSystemFontOfSize:10];
 }
 
 - (void)setupView
@@ -78,7 +81,7 @@
     
     self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     CGFloat padding = self.paddingAppliedOnOutside ? [self barPaddingForBarChartView:self.barChartView] : 0;
-    self.barChartView.frame = CGRectMake(padding, 0, self.frame.size.width - (padding * 2), self.frame.size.height - (self.showFullBar ? 0 : HEIGHT_WEEKDAY));
+    self.barChartView.frame = CGRectMake(padding, padding, self.frame.size.width - (padding * 2), self.frame.size.height - (self.showFullBar ? 0 : HEIGHT_WEEKDAY) - 2 * padding);
     
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
