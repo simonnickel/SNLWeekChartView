@@ -38,19 +38,72 @@ IB_DESIGNABLE
 
 #pragma mark - Layout
 
+/**
+ * Enables value labels in bar. Labels are automatically hidden if bar is too short or thin.
+ *
+ * @default YES
+ */
 @property (nonatomic) IBInspectable BOOL showValues;
+
+/**
+ * Shows values as percentage.
+ *
+ * @default NO
+ */
 @property (nonatomic) IBInspectable BOOL percentageMode;
+
+/**
+ * Enables weekday labels with text determined by the device language. Size depends on bar width and is hidden if too thin.
+ *
+ * @default YES
+ */
 @property (nonatomic) IBInspectable BOOL showWeekdays;
+
+/**
+ * Week can start on Monday or Sunday.
+ *
+ * @default YES
+ */
 @property (nonatomic) IBInspectable BOOL startsOnMonday;
+
+/**
+ * Use different color and font for current day, past days and days in the future.
+ *
+ * @default YES
+ */
 @property (nonatomic) IBInspectable BOOL highlightWeekdays;
+
+/**
+ * Weekday labels are hidden if bar is too thin; Set to fill whole view with bar.
+ *
+ * @default YES
+ */
 @property (nonatomic) IBInspectable BOOL fillBarIfThin;
 
-@property (nonatomic) ChartWeekPaddingWidth paddingWidth;
+/**
+ * Set a padding class for your bars. Padding classes generate dynamic padding depending on the size of the view.
+ *
+ * @default ChartWeekPaddingWidthDefault
+ */
+@property (nonatomic) ChartWeekPaddingWidth paddingWidth; // set a padding class (ChartWeekPaddingWidth...)
+
+/**
+ * Set to use a fixed padding.
+ * Do not set paddingWith or set paddingWidth = ChartWeekPaddingWidthFromValue.
+ *
+ * @default -1 (not used)
+ */
 @property (nonatomic) IBInspectable NSInteger paddingValue;
+
+/**
+ * Apply the same padding from bars on the outside of the view.
+ *
+ * @default NO
+ */
 @property (nonatomic) IBInspectable BOOL paddingAppliedOnOutside;
 
 
-#pragma mark - Design
+#pragma mark - Appearance
 
 @property (nonatomic) IBInspectable UIColor *colorBackground;
 @property (nonatomic) IBInspectable UIColor *colorChart;
