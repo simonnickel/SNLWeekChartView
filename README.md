@@ -59,11 +59,11 @@ You can ...
 
 
 
- ## Changelog
+## Changelog
 
- ### v1.0.1
-  * Add Dokumentation
-  * Fix outside padding: also applied on top and bottom to make use of background color.
+### v1.0.1
+ * Add Dokumentation
+ * Fix outside padding: also applied on top and bottom to make use of background color.
 
 
 ## Author
