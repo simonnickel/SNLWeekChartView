@@ -58,6 +58,14 @@ You can ...
  * Set the weekdays to start on Sunday (startsOnMonday).
 
 
+
+ ## Changelog
+
+ ### v1.0.1
+  * Add Dokumentation
+  * Fix outside padding: also applied on top and bottom to make use of background color.
+
+
 ## Author
 
 Simon Nickel, simon@googlemail.com, [@simonnickel](https://twitter.com/simonnickel)
