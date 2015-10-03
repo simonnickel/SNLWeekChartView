@@ -53,6 +53,13 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable BOOL showValuesEmpty;
 
 /**
+ * Displays empty values as dash, if empty values are enabled.
+ *
+ * @default YES
+ */
+@property (nonatomic) IBInspectable BOOL showValuesEmptyAsDash;
+
+/**
  * Shows values as percentage.
  *
  * @default NO

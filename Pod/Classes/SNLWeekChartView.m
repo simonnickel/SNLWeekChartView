@@ -58,6 +58,7 @@
     self.paddingValue = -1;
     self.showValues = YES;
     self.showValuesEmpty = YES;
+    self.showValuesEmptyAsDash = NO;
     self.showWeekdays = YES;
     self.startsOnMonday = YES;
     self.highlightWeekdays = YES;
@@ -277,10 +278,14 @@
     labelValue.textAlignment = NSTextAlignmentCenter;
     labelValue.translatesAutoresizingMaskIntoConstraints = NO;
     
-    if (self.percentageMode) {
-        labelValue.text = [NSString stringWithFormat:@"%.f %%", value];
+    if (value == 0.0f && self.showValuesEmptyAsDash) {
+        labelValue.text = @"-";
     } else {
-        labelValue.text = [NSString stringWithFormat:@"%.f", value];
+        if (self.percentageMode) {
+            labelValue.text = [NSString stringWithFormat:@"%.f %%", value];
+        } else {
+            labelValue.text = [NSString stringWithFormat:@"%.f", value];
+        }
     }
     
     return labelValue;
