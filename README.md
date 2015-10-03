@@ -11,6 +11,9 @@ SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.co
 
  * Configure and Preview view in storyboard.
  * Supports week start on monday or sunday.
+ * Weekday and value labels.
+ * Custom padding.
+ * ...
 
 ![Example](https://raw.githubusercontent.com/simonnickel/SNLWeekChartView/master/Pod/Assets/SNLWeekChartView.png)
 
@@ -65,6 +68,10 @@ You can ...
 
 
 ## Changelog
+
+### v1.1.0
+ * Added options to show empty values as "0" or "-", with custom color.
+ * Improved example.
 
 ### v1.0.4
 * Fix weekday label highlighting default font for future days.
