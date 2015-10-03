@@ -304,7 +304,7 @@
     
     if (self.highlightWeekdays) {
         if (self.highlightWeekdays) {
-            NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]] - 1;
+            NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]];
             if (index == dateIndexToday) {
                 labelWeekday.font = self.fontWeekdayToday ? : self.fontWeekday;
                 labelWeekday.textColor = self.colorWeekdayToday ? : self.colorWeekday;
@@ -324,7 +324,7 @@
 - (NSInteger)indexForWeekdayFromDate:(NSDate *)date
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitWeekday fromDate:date];
-    NSInteger weekday = components.weekday;
+    NSInteger weekday = components.weekday - 1;
     
     if (self.startsOnMonday) {
         return (weekday == 0 ? 6 : weekday - 1);
