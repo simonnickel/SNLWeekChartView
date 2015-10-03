@@ -238,7 +238,7 @@
 - (UIView *)barChartView:(JBBarChartView *)barChartView barViewAtIndex:(NSUInteger)index
 {
     UIView *barView = [UIView new];
-    barView.backgroundColor = self.colorChart;
+    barView.backgroundColor = ([self valueAtIndex:index] > 0.0f ? self.colorChart : UIColor.clearColor);
     barView.clipsToBounds = NO;
     
     
