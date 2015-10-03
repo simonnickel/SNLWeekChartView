@@ -38,7 +38,6 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="percentageMode" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="startsOnMonday" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayToday">
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
