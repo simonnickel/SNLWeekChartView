@@ -274,11 +274,12 @@
         [self placeView:labelWeekday atBottomOfView:barView bottom:HEIGHT_WEEKDAY - PADDING_LABEL height:labelWeekdaySize.height];
         
         if (self.highlightWeekdays) {
+            NSInteger indexWeekday = [self weekdayForIndex:index];
             NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]];
-            if (index == dateIndexToday) {
+            if (indexWeekday == dateIndexToday) {
                 labelWeekday.font = self.fontWeekdayToday ? : self.fontWeekday;
                 labelWeekday.textColor = self.colorWeekdayToday ? : self.colorWeekday;
-            } else if (index > dateIndexToday) {
+            } else if (indexWeekday > dateIndexToday) {
                 labelWeekday.font = self.fontWeekdayInactive ? : self.fontWeekday;
                 labelWeekday.textColor = self.colorWeekdayInactive ? : self.colorWeekday;
             }
