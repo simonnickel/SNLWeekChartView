@@ -261,32 +261,38 @@
     }
     
     if (self.showWeekdays) {
-        UILabel *labelWeekday = [UILabel new];
-        labelWeekday.textColor = self.colorWeekday;
-        labelWeekday.font = self.fontWeekday;
-        labelWeekday.textAlignment = NSTextAlignmentCenter;
-        labelWeekday.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSString *weekdayText = [self weekdaySymbolForIndex:index startOnMonday:self.startsOnMonday veryShort:[self isThin]];
-        labelWeekday.text = [[weekdayText stringByReplacingOccurrencesOfString:@"." withString:@""] uppercaseString];
-        
+        UILabel *labelWeekday = [self labelWeekdayForIndex:index];
         CGSize labelWeekdaySize = [labelWeekday.text sizeWithAttributes:@{NSFontAttributeName:labelWeekday.font}];
         [self placeView:labelWeekday atBottomOfView:barView bottom:HEIGHT_WEEKDAY - PADDING_LABEL height:labelWeekdaySize.height];
-        
-        if (self.highlightWeekdays) {
-            NSInteger indexWeekday = [self weekdayForIndex:index];
-            NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]];
-            if (indexWeekday == dateIndexToday) {
-                labelWeekday.font = self.fontWeekdayToday ? : self.fontWeekday;
-                labelWeekday.textColor = self.colorWeekdayToday ? : self.colorWeekday;
-            } else if (indexWeekday > dateIndexToday) {
-                labelWeekday.font = self.fontWeekdayInactive ? : self.fontWeekday;
-                labelWeekday.textColor = self.colorWeekdayInactive ? : self.colorWeekday;
-            }
-        }
     }
     
     return barView;
+}
+
+- (UILabel *)labelWeekdayForIndex:(NSUInteger)index
+{
+    UILabel *labelWeekday = [UILabel new];
+    labelWeekday.textColor = self.colorWeekday;
+    labelWeekday.font = self.fontWeekday;
+    labelWeekday.textAlignment = NSTextAlignmentCenter;
+    labelWeekday.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSString *weekdayText = [self weekdaySymbolForIndex:index startOnMonday:self.startsOnMonday veryShort:[self isThin]];
+    labelWeekday.text = [[weekdayText stringByReplacingOccurrencesOfString:@"." withString:@""] uppercaseString];
+    
+    if (self.highlightWeekdays) {
+        NSInteger indexWeekday = [self weekdayForIndex:index];
+        NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]];
+        if (indexWeekday == dateIndexToday) {
+            labelWeekday.font = self.fontWeekdayToday ? : self.fontWeekday;
+            labelWeekday.textColor = self.colorWeekdayToday ? : self.colorWeekday;
+        } else if (indexWeekday > dateIndexToday) {
+            labelWeekday.font = self.fontWeekdayInactive ? : self.fontWeekday;
+            labelWeekday.textColor = self.colorWeekdayInactive ? : self.colorWeekday;
+        }
+    }
+    
+    return labelWeekday;
 }
 
 
