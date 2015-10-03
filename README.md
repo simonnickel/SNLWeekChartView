@@ -66,9 +66,11 @@ You can ...
 
 ## Changelog
 
+### v1.0.4
+* Fix weekday label highlighting default font for future days.
+
 ### v1.0.3
  * Fix weekday label highlighting for week start on monday.
-
 
 ### v1.0.2
  * Improve example project.
