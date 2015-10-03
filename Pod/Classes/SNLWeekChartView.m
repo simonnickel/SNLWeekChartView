@@ -57,15 +57,17 @@
     self.values = @[@(2),@(0),@(4),@(3),@(1),@(5),@(6)];
     self.paddingValue = -1;
     self.showValues = YES;
+    self.showValuesEmpty = YES;
     self.showWeekdays = YES;
     self.startsOnMonday = YES;
     self.highlightWeekdays = YES;
     self.fillBarIfThin = YES;
     
-    self.colorBackground = [UIColor whiteColor];
+    self.colorBackground = [UIColor clearColor];
     self.colorChart = [UIColor blackColor];
-    self.colorValue = [UIColor redColor];
-    self.colorWeekday = [UIColor greenColor];
+    self.colorValue = [UIColor whiteColor];
+    self.colorValueEmpty = self.colorValue;
+    self.colorWeekday = [UIColor blackColor];
     self.colorWeekdayToday = [UIColor blackColor];
     self.colorWeekdayInactive = [UIColor grayColor];
     
@@ -184,7 +186,10 @@
     CGFloat barHeight = self.barChartView.frame.size.height / (self.valueMax.floatValue / barValue);
     CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
     
-    return _showValues && labelSize.height < barHeight - PADDING_LABEL && labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
+    BOOL fitsWidth = labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
+    BOOL fitsHeight = labelSize.height < barHeight - PADDING_LABEL;
+    
+    return _showValues && fitsWidth && (barValue == 0.0f ? self.showValuesEmpty : fitsHeight);
 }
 
 
@@ -264,16 +269,18 @@
 
 - (UILabel *)labelValueForBarChartView:(JBBarChartView *)barChartView forIndex:(NSUInteger)index
 {
+    CGFloat value = [self barChartView:barChartView heightForBarViewAtIndex:index];
+    
     UILabel *labelValue = [UILabel new];
-    labelValue.textColor = self.colorValue;
+    labelValue.textColor = (value == 0.0f ? self.colorValueEmpty : self.colorValue);
     labelValue.font = self.fontValue;
     labelValue.textAlignment = NSTextAlignmentCenter;
     labelValue.translatesAutoresizingMaskIntoConstraints = NO;
     
     if (self.percentageMode) {
-        labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtIndex:index]];
+        labelValue.text = [NSString stringWithFormat:@"%.f %%", value];
     } else {
-        labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtIndex:index]];
+        labelValue.text = [NSString stringWithFormat:@"%.f", value];
     }
     
     return labelValue;

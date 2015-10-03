@@ -46,6 +46,13 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable BOOL showValues;
 
 /**
+ * Displays empty value outside of bar, if value labels are enabled.
+ *
+ * @default YES
+ */
+@property (nonatomic) IBInspectable BOOL showValuesEmpty;
+
+/**
  * Shows values as percentage.
  *
  * @default NO
@@ -108,6 +115,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable UIColor *colorBackground;
 @property (nonatomic) IBInspectable UIColor *colorChart;
 @property (nonatomic) IBInspectable UIColor *colorValue;
+@property (nonatomic) IBInspectable UIColor *colorValueEmpty;
 @property (nonatomic) IBInspectable UIColor *colorWeekday;
 @property (nonatomic) IBInspectable UIColor *colorWeekdayToday;
 @property (nonatomic) IBInspectable UIColor *colorWeekdayInactive;
