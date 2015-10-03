@@ -140,7 +140,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="colorWeekday">
                                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showWeekdays" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="highlightWeekdays" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -283,7 +283,7 @@
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorChart">
-                                        <color key="value" red="0.42046706356996932" green="0.90383550094189313" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.60851627230000005" blue="0.51414115059999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorValue">
                                         <color key="value" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -291,15 +291,19 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekday">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showWeekdays" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showWeekdays" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showValues" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="paddingValue">
-                                        <integer key="value" value="14"/>
+                                        <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayToday">
                                         <color key="value" red="0.54179710069999998" green="1" blue="0.41464002030000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showValuesEmptyAsDash" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayInactive">
+                                        <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValuesEmpty" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-Bx-FaV" customClass="SNLWeekChartView">
@@ -324,13 +328,16 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showWeekdays" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showValues" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="paddingValue">
-                                        <integer key="value" value="14"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayToday">
                                         <color key="value" red="0.54179710069999998" green="1" blue="0.41464002030000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorValueEmpty">
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayInactive">
+                                        <color key="value" cocoaTouchSystemColor="lightTextColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>

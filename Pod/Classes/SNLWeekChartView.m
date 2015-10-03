@@ -70,7 +70,7 @@
     self.colorValueEmpty = self.colorValue;
     self.colorWeekday = [UIColor blackColor];
     self.colorWeekdayToday = [UIColor blackColor];
-    self.colorWeekdayInactive = [UIColor grayColor];
+    self.colorWeekdayInactive = [UIColor darkGrayColor];
     
     self.fontValue = [UIFont boldSystemFontOfSize:10];
     self.fontWeekday = [UIFont systemFontOfSize:10];
