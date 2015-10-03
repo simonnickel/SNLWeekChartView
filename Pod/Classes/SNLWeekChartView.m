@@ -54,18 +54,21 @@
 
 - (void)initializeDefaults
 {
-    self.values = @[@(1),@(5),@(2),@(3),@(4),@(5),@(6)];
+    self.values = @[@(2),@(0),@(4),@(3),@(1),@(5),@(6)];
     self.paddingValue = -1;
     self.showValues = YES;
+    self.showValuesEmpty = YES;
+    self.showValuesEmptyAsDash = NO;
     self.showWeekdays = YES;
     self.startsOnMonday = YES;
     self.highlightWeekdays = YES;
     self.fillBarIfThin = YES;
     
-    self.colorBackground = [UIColor whiteColor];
+    self.colorBackground = [UIColor clearColor];
     self.colorChart = [UIColor blackColor];
-    self.colorValue = [UIColor redColor];
-    self.colorWeekday = [UIColor greenColor];
+    self.colorValue = [UIColor whiteColor];
+    self.colorValueEmpty = self.colorValue;
+    self.colorWeekday = [UIColor blackColor];
     self.colorWeekdayToday = [UIColor blackColor];
     self.colorWeekdayInactive = [UIColor grayColor];
     
@@ -112,7 +115,7 @@
 
 - (void)prepareForInterfaceBuilder
 {
-    self.values = @[@(1),@(2),@(3),@(4),@(3),@(5),@(6)];
+    self.values = @[@(2),@(0),@(4),@(3),@(1),@(5),@(6)];
     
     [self setupView];
 }
@@ -184,7 +187,10 @@
     CGFloat barHeight = self.barChartView.frame.size.height / (self.valueMax.floatValue / barValue);
     CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
     
-    return _showValues && labelSize.height < barHeight - PADDING_LABEL && labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
+    BOOL fitsWidth = labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
+    BOOL fitsHeight = labelSize.height < barHeight - PADDING_LABEL;
+    
+    return _showValues && fitsWidth && (barValue == 0.0f ? self.showValuesEmpty : fitsHeight);
 }
 
 
@@ -238,21 +244,14 @@
 - (UIView *)barChartView:(JBBarChartView *)barChartView barViewAtIndex:(NSUInteger)index
 {
     UIView *barView = [UIView new];
-    barView.backgroundColor = self.colorChart;
+    barView.backgroundColor = ([self valueAtIndex:index] > 0.0f ? self.colorChart : UIColor.clearColor);
     barView.clipsToBounds = NO;
     
+    
+    // add labels to view
+    
     if (self.showValues) {
-        UILabel *labelValue = [UILabel new];
-        labelValue.textColor = self.colorValue;
-        labelValue.font = self.fontValue;
-        labelValue.textAlignment = NSTextAlignmentCenter;
-        labelValue.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        if (self.percentageMode) {
-            labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtIndex:index]];
-        } else {
-            labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtIndex:index]];
-        }
+        UILabel *labelValue = [self labelValueForBarChartView:barChartView forIndex:index];
         
         if ([self showValueLabel:labelValue atIndex:index]) {
             CGSize labelValueSize = [labelValue.text sizeWithAttributes:@{NSFontAttributeName:labelValue.font}];
@@ -261,18 +260,49 @@
     }
     
     if (self.showWeekdays) {
-        UILabel *labelWeekday = [UILabel new];
-        labelWeekday.textColor = self.colorWeekday;
-        labelWeekday.font = self.fontWeekday;
-        labelWeekday.textAlignment = NSTextAlignmentCenter;
-        labelWeekday.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSString *weekdayText = [self weekdaySymbolForIndex:index startOnMonday:self.startsOnMonday veryShort:[self isThin]];
-        labelWeekday.text = [[weekdayText stringByReplacingOccurrencesOfString:@"." withString:@""] uppercaseString];
-        
+        UILabel *labelWeekday = [self labelWeekdayForIndex:index];
         CGSize labelWeekdaySize = [labelWeekday.text sizeWithAttributes:@{NSFontAttributeName:labelWeekday.font}];
         [self placeView:labelWeekday atBottomOfView:barView bottom:HEIGHT_WEEKDAY - PADDING_LABEL height:labelWeekdaySize.height];
-        
+    }
+    
+    return barView;
+}
+
+- (UILabel *)labelValueForBarChartView:(JBBarChartView *)barChartView forIndex:(NSUInteger)index
+{
+    CGFloat value = [self barChartView:barChartView heightForBarViewAtIndex:index];
+    
+    UILabel *labelValue = [UILabel new];
+    labelValue.textColor = (value == 0.0f ? self.colorValueEmpty : self.colorValue);
+    labelValue.font = self.fontValue;
+    labelValue.textAlignment = NSTextAlignmentCenter;
+    labelValue.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    if (value == 0.0f && self.showValuesEmptyAsDash) {
+        labelValue.text = @"-";
+    } else {
+        if (self.percentageMode) {
+            labelValue.text = [NSString stringWithFormat:@"%.f %%", value];
+        } else {
+            labelValue.text = [NSString stringWithFormat:@"%.f", value];
+        }
+    }
+    
+    return labelValue;
+}
+
+- (UILabel *)labelWeekdayForIndex:(NSUInteger)index
+{
+    UILabel *labelWeekday = [UILabel new];
+    labelWeekday.textColor = self.colorWeekday;
+    labelWeekday.font = self.fontWeekday;
+    labelWeekday.textAlignment = NSTextAlignmentCenter;
+    labelWeekday.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSString *weekdayText = [self weekdaySymbolForIndex:index startOnMonday:self.startsOnMonday veryShort:[self isThin]];
+    labelWeekday.text = [[weekdayText stringByReplacingOccurrencesOfString:@"." withString:@""] uppercaseString];
+    
+    if (self.highlightWeekdays) {
         if (self.highlightWeekdays) {
             NSInteger dateIndexToday = [self indexForWeekdayFromDate:[NSDate date]] - 1;
             if (index == dateIndexToday) {
@@ -285,7 +315,7 @@
         }
     }
     
-    return barView;
+    return labelWeekday;
 }
 
 
