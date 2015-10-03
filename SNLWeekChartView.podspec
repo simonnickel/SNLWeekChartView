@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SNLWeekChartView"
-  s.version          = "1.0.1"
+  s.version          = "1.0.2"
   s.summary          = "SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week."
   s.description      = <<-DESC
                        Using IB_DESIGNABLE you can add a SNLWeekChartView to your storyboard to configure and preview it right there. This view configures and handles a JBChartView.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/simonnickel/SNLWeekChartView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Simon Nickel" => "simon@googlemail.com" }
+  s.author           = { "Simon Nickel" => "simonnickel@googlemail.com" }
   s.source           = { :git => "https://github.com/simonnickel/SNLWeekChartView.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/simonnickel'
 
@@ -31,5 +31,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'JBChartView', '~> 2.8.14'
+  s.dependency 'JBChartView', '~> 2.8'
 end
