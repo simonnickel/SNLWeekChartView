@@ -7,6 +7,11 @@
 
 SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week. Just layout your SNLWeekChartView in your storyboard and style it using IB_DESIGNABLE. Set your values in your ViewController and you are done.
 
+## Features
+
+ * Configure and Preview view in storyboard.
+ * Supports week start on monday or sunday.
+
 ![Example](https://raw.githubusercontent.com/simonnickel/SNLWeekChartView/master/Pod/Assets/SNLWeekChartView.png)
 
 ## Example
@@ -60,6 +65,10 @@ You can ...
 
 
 ## Changelog
+
+### v1.0.2
+ * Improve example project.
+ * Fix weekday label highlighting for week start on monday.
 
 ### v1.0.1
  * Add Dokumentation
