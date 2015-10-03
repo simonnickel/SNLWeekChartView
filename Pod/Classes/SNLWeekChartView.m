@@ -241,18 +241,11 @@
     barView.backgroundColor = self.colorChart;
     barView.clipsToBounds = NO;
     
+    
+    // add labels to view
+    
     if (self.showValues) {
-        UILabel *labelValue = [UILabel new];
-        labelValue.textColor = self.colorValue;
-        labelValue.font = self.fontValue;
-        labelValue.textAlignment = NSTextAlignmentCenter;
-        labelValue.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        if (self.percentageMode) {
-            labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtIndex:index]];
-        } else {
-            labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtIndex:index]];
-        }
+        UILabel *labelValue = [self labelValueForBarChartView:barChartView forIndex:index];
         
         if ([self showValueLabel:labelValue atIndex:index]) {
             CGSize labelValueSize = [labelValue.text sizeWithAttributes:@{NSFontAttributeName:labelValue.font}];
@@ -267,6 +260,23 @@
     }
     
     return barView;
+}
+
+- (UILabel *)labelValueForBarChartView:(JBBarChartView *)barChartView forIndex:(NSUInteger)index
+{
+    UILabel *labelValue = [UILabel new];
+    labelValue.textColor = self.colorValue;
+    labelValue.font = self.fontValue;
+    labelValue.textAlignment = NSTextAlignmentCenter;
+    labelValue.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    if (self.percentageMode) {
+        labelValue.text = [NSString stringWithFormat:@"%.f %%", [self barChartView:barChartView heightForBarViewAtIndex:index]];
+    } else {
+        labelValue.text = [NSString stringWithFormat:@"%.f", [self barChartView:barChartView heightForBarViewAtIndex:index]];
+    }
+    
+    return labelValue;
 }
 
 - (UILabel *)labelWeekdayForIndex:(NSUInteger)index
