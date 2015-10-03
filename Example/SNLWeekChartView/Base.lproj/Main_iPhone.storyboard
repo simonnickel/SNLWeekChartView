@@ -64,9 +64,6 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="percentageMode" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayInactive">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="paddingAppliedOnOutside" value="NO"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorBackground">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -307,7 +304,7 @@
                                         <integer key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayToday">
-                                        <color key="value" red="0.84625589499999998" green="1" blue="0.75308564040000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.54179710069999998" green="1" blue="0.41464002030000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -336,7 +333,7 @@
                                         <integer key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorWeekdayToday">
-                                        <color key="value" red="0.84625589499999998" green="1" blue="0.75308564040000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.54179710069999998" green="1" blue="0.41464002030000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>

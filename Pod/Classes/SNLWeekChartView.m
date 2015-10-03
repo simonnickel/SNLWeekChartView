@@ -54,7 +54,7 @@
 
 - (void)initializeDefaults
 {
-    self.values = @[@(1),@(4),@(2),@(3),@(0),@(5),@(6)];
+    self.values = @[@(2),@(0),@(4),@(3),@(1),@(5),@(6)];
     self.paddingValue = -1;
     self.showValues = YES;
     self.showWeekdays = YES;
@@ -112,7 +112,7 @@
 
 - (void)prepareForInterfaceBuilder
 {
-    self.values = @[@(1),@(2),@(3),@(4),@(3),@(5),@(6)];
+    self.values = @[@(2),@(0),@(4),@(3),@(1),@(5),@(6)];
     
     [self setupView];
 }
