@@ -54,7 +54,7 @@
 
 - (void)initializeDefaults
 {
-    self.values = @[@(1),@(5),@(2),@(3),@(4),@(5),@(6)];
+    self.values = @[@(1),@(4),@(2),@(3),@(0),@(5),@(6)];
     self.paddingValue = -1;
     self.showValues = YES;
     self.showWeekdays = YES;

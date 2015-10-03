@@ -331,7 +331,7 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showWeekdays" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValues" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValues" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="paddingValue">
                                         <integer key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
