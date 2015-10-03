@@ -77,7 +77,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeP-lD-loy" customClass="SNLWeekChartView">
-                                <rect key="frame" x="85" y="210" width="150" height="50"/>
+                                <rect key="frame" x="85" y="200" width="150" height="50"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Zbx-Bs-clq"/>
@@ -103,7 +103,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvL-ya-5aL">
-                                <rect key="frame" x="16" y="285" width="288" height="50"/>
+                                <rect key="frame" x="16" y="265" width="288" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zty-rm-ooP" customClass="SNLWeekChartView">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
@@ -164,7 +164,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPF-Ie-DPW">
-                                <rect key="frame" x="16" y="365" width="288" height="50"/>
+                                <rect key="frame" x="16" y="330" width="288" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiH-9B-c2t" customClass="SNLWeekChartView">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -292,11 +292,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mp-dh-1E8" customClass="SNLWeekChartView">
-                                <rect key="frame" x="10" y="445" width="300" height="113"/>
+                                <rect key="frame" x="16" y="395" width="288" height="88"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="FbZ-ck-E31"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorBackground">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -317,34 +314,66 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-Bx-FaV" customClass="SNLWeekChartView">
+                                <rect key="frame" x="16" y="498" width="288" height="60"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="89A-ZI-ynQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBackground">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorChart">
+                                        <color key="value" red="0.42046706360000002" green="0.90383550089999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorValue">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorWeekday">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showWeekdays" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValues" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingValue">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.26803717020000001" green="0.67513221499999998" blue="0.75484710929999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="hPF-Ie-DPW" firstAttribute="top" secondItem="hvL-ya-5aL" secondAttribute="bottom" constant="30" id="3GE-k8-bSK"/>
+                            <constraint firstItem="hPF-Ie-DPW" firstAttribute="top" secondItem="hvL-ya-5aL" secondAttribute="bottom" constant="15" id="3GE-k8-bSK"/>
                             <constraint firstAttribute="centerX" secondItem="hvL-ya-5aL" secondAttribute="centerX" id="61I-V5-jMI"/>
-                            <constraint firstItem="2mp-dh-1E8" firstAttribute="top" secondItem="hPF-Ie-DPW" secondAttribute="bottom" constant="30" id="Al2-o0-GHi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aj2-Bx-FaV" secondAttribute="trailing" id="9on-JD-NGC"/>
+                            <constraint firstItem="2mp-dh-1E8" firstAttribute="top" secondItem="hPF-Ie-DPW" secondAttribute="bottom" constant="15" id="Al2-o0-GHi"/>
                             <constraint firstItem="21t-GH-wbK" firstAttribute="left" secondItem="kh9-bI-dsS" secondAttribute="left" constant="10" id="BaN-jy-LgT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hPF-Ie-DPW" secondAttribute="trailing" id="BcC-Ox-MSW"/>
                             <constraint firstItem="hPF-Ie-DPW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="CEj-ik-bjB"/>
-                            <constraint firstAttribute="centerX" secondItem="2mp-dh-1E8" secondAttribute="centerX" id="JLn-GD-VTH"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2mp-dh-1E8" secondAttribute="bottom" constant="10" id="NUH-8a-ZMD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="aj2-Bx-FaV" secondAttribute="bottom" constant="10" id="HdX-GD-2Dx"/>
                             <constraint firstAttribute="centerX" secondItem="oeP-lD-loy" secondAttribute="centerX" id="Pcm-yL-JHS"/>
+                            <constraint firstItem="2mp-dh-1E8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Xxe-4q-Faf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2mp-dh-1E8" secondAttribute="trailing" id="ZRX-KK-ciM"/>
                             <constraint firstItem="0ax-wf-U28" firstAttribute="top" secondItem="21t-GH-wbK" secondAttribute="bottom" constant="25" id="csb-ox-A7U"/>
                             <constraint firstItem="hvL-ya-5aL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="eRU-V9-SqP"/>
+                            <constraint firstItem="aj2-Bx-FaV" firstAttribute="top" secondItem="2mp-dh-1E8" secondAttribute="bottom" constant="15" id="glP-3b-VIg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hvL-ya-5aL" secondAttribute="trailing" id="kut-lO-ERg"/>
                             <constraint firstItem="21t-GH-wbK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="lZ1-Ln-tYf"/>
                             <constraint firstAttribute="right" secondItem="21t-GH-wbK" secondAttribute="right" constant="10" id="nbP-sK-29q"/>
-                            <constraint firstItem="hvL-ya-5aL" firstAttribute="top" secondItem="oeP-lD-loy" secondAttribute="bottom" constant="25" id="oBU-gw-dy3"/>
-                            <constraint firstItem="oeP-lD-loy" firstAttribute="top" secondItem="0ax-wf-U28" secondAttribute="bottom" constant="25" id="xPz-wG-KV1"/>
+                            <constraint firstItem="hvL-ya-5aL" firstAttribute="top" secondItem="oeP-lD-loy" secondAttribute="bottom" constant="15" id="oBU-gw-dy3"/>
+                            <constraint firstItem="oeP-lD-loy" firstAttribute="top" secondItem="0ax-wf-U28" secondAttribute="bottom" constant="15" id="xPz-wG-KV1"/>
                             <constraint firstAttribute="centerX" secondItem="0ax-wf-U28" secondAttribute="centerX" id="yjB-vO-uBF"/>
+                            <constraint firstItem="aj2-Bx-FaV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ysn-Wi-5W7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="weekViewEmpty" destination="aj2-Bx-FaV" id="o8U-DM-qJp"/>
                         <outlet property="weekViewMain" destination="21t-GH-wbK" id="W9b-wf-Sde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="445" y="299"/>
         </scene>
     </scenes>
 </document>

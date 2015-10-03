@@ -13,5 +13,6 @@
 @interface SNLViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet SNLWeekChartView *weekViewMain;
+@property (weak, nonatomic) IBOutlet SNLWeekChartView *weekViewEmpty;
 
 @end
