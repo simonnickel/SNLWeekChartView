@@ -66,6 +66,10 @@ You can ...
 
 ## Changelog
 
+### v1.0.3
+ * Fix weekday label highlighting for week start on monday.
+
+
 ### v1.0.2
  * Improve example project.
  * Fix weekday label highlighting for week start on monday.
