@@ -72,7 +72,7 @@
     self.fontValue = [UIFont boldSystemFontOfSize:10];
     self.fontWeekday = [UIFont systemFontOfSize:10];
     self.fontWeekdayToday = [UIFont boldSystemFontOfSize:10];
-    self.fontWeekdayInactive = [UIFont boldSystemFontOfSize:10];
+    self.fontWeekdayInactive = [UIFont systemFontOfSize:10];
 }
 
 - (void)setupView
