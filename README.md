@@ -28,7 +28,7 @@ SNLWeekChartView is available through [CocoaPods](http://cocoapods.org). To inst
 it, simply add the following line to your Podfile:
 
 ```objective-c
-pod "SNLWeekChartView", "~> 1.0"
+pod "SNLWeekChartView", "~> 1.1.0"
 ```
 
 
