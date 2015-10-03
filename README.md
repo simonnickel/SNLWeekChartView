@@ -69,6 +69,9 @@ You can ...
 
 ## Changelog
 
+### v1.1.1
+ * Fix weekday label highlighting on sunday.
+
 ### v1.1.0
  * Added options to show empty values as "0" or "-", with custom color.
  * Improved example.
