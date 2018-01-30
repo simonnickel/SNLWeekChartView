@@ -1,13 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-use_frameworks!
+platform :ios, '9.0'
 
-target 'SNLWeekChartView', :exclusive => true do
+target 'SNLWeekChartView' do
   pod "SNLWeekChartView", :path => "../"
   
 end
 
-target 'Tests', :exclusive => true do
+target 'Tests' do
   pod "SNLWeekChartView", :path => "../"
 
 end
