@@ -5,9 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/SNLWeekChartView.svg?style=flat)](http://cocoapods.org/pods/SNLWeekChartView)
 [![Platform](https://img.shields.io/cocoapods/p/SNLWeekChartView.svg?style=flat)](http://cocoapods.org/pods/SNLWeekChartView)
 
-SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week. Just layout your SNLWeekChartView in your storyboard and style it using IB_DESIGNABLE. Set your values in your ViewController and you are done.
+## NOTE:
+This project is quite old and will not get any real maintenance updates in the future. I would not recommend integrating it in your project. If you already use it, everythings seems to be working fine still, but might break in the future. 
+
+
+
 
 ## Features
+
+SNLWeekChartView is a wrapper to easily create a [JBChartView](https://github.com/Jawbone/JBChartView) representing a week. Just layout your SNLWeekChartView in your storyboard and style it using IB_DESIGNABLE. Set your values in your ViewController and you are done.
 
  * Configure and Preview view in storyboard.
  * Supports week start on monday or sunday.
@@ -68,6 +74,10 @@ You can ...
 
 
 ## Changelog
+
+### v1.2.0
+* Adjusted threshold for small size type.
+* NOTE: This project is quite old and will not get any real maintenance updates in the future. 
 
 ### v1.1.1
  * Fix weekday label highlighting on sunday.

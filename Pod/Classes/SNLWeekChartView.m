@@ -19,7 +19,7 @@
 #import "SNLWeekChartView.h"
 
 #define HEIGHT_WEEKDAY 16
-#define PADDING_LABEL 2
+#define PADDING_LABEL 1
 
 @interface SNLWeekChartView ()
 
@@ -135,7 +135,7 @@
 
 - (BOOL)isVeryThin
 {
-    return self.barChartView.frame.size.width < 100;
+    return self.barChartView.frame.size.width < 80;
 }
 
 - (void)setValues:(NSArray *)values
@@ -187,7 +187,7 @@
     CGFloat barHeight = self.barChartView.frame.size.height / (self.valueMax.floatValue / barValue);
     CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
     
-    BOOL fitsWidth = labelSize.width < self.barWidth - 4 - (2 * PADDING_LABEL);
+    BOOL fitsWidth = labelSize.width < self.barWidth - (2 * PADDING_LABEL);
     BOOL fitsHeight = labelSize.height < barHeight - PADDING_LABEL;
     
     return _showValues && fitsWidth && (barValue == 0.0f ? self.showValuesEmpty : fitsHeight);
